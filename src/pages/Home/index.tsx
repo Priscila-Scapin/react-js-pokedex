@@ -122,7 +122,14 @@ const Home = () => {
 
 	}, [filterType])
 
-console.log(filterQueryParam)
+	const fetchInitialPagePokemon = async () => {
+		const result = await list({ limit: 80, offset: 0,});
+		setFilteredPokemons(result)
+	}
+	useEffect(() => {
+		fetchInitialPagePokemon()
+	}, [])
+
 	return (
 		<> 
 		<ResponsiveAppBar />
@@ -204,7 +211,8 @@ console.log(filterQueryParam)
 							}}
 						/>
 						<Typography sx={{ marginTop: '1rem' }} variant='h5' color="#44403C">
-							Use the Search field or click on Browse by to explore Pokémon by type, gen, and more! Search for a Pokémon by name or using its id.
+							{/* Use the Search field or click on Browse by to explore Pokémon by type, gen, and more! Search for a Pokémon by name or using its id. */}
+							Loading...
 						</Typography>
 					</Box>
 				)} 
