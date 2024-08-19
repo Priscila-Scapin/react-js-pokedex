@@ -1,7 +1,8 @@
-ReactJs Pokedex
+# ReactJs Pokedex
 
-Welcome to the ReactJs Pokedex project! This application is designed to showcase information about Pokémon using a modern React.js setup.
-Project Overview
+Welcome to the ReactJs Pokedex project! 
+
+# Project Overview
 
 This project was bootstrapped with Create React App. It provides a simple, yet powerful, interface to browse and search for your favorite Pokémon.
 Features
@@ -10,12 +11,12 @@ Features
     State Management: Utilizes Recoil for efficient and easy-to-use state management.
     Material UI (MUI): MUI is used to create a polished and professional user interface.
 
-Libraries Used
+# Libraries Used
 
     Recoil: A state management library for React that makes managing complex state easy.
     MUI (Material-UI): A popular React UI framework that helps in building consistent and professional interfaces.
 
-Getting Started
+# Getting Started
 
 To get a local copy of the project up and running, follow these steps:
 Prerequisites
@@ -25,7 +26,7 @@ Ensure you have the following installed:
     Node.js
     npm or Yarn
 
-Installation
+# Installation
 
     Clone the repository:
 
@@ -42,7 +43,7 @@ bash
     # or
     yarn install
 
-Running the Project
+# Running the Project
 
 To start the development server, run:
 
