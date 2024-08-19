@@ -1,5 +1,4 @@
 import { gql, request } from 'graphql-request'
-
 import { endpoint, sprites } from '../config'
 import { Pokemon } from './interfaces'
 
@@ -45,9 +44,25 @@ const queryByName = gql`
   }
 `
 
+const queryByType = gql`
+  ${PokemonInfo}
+
+  query findSpeciesByType($offset: Int!, $limit: Int!, $type: String!) {
+    species: pokemon_v2_pokemon(
+      offset: $offset, limit: $limit,
+      order_by: { id: asc },
+      where: { pokemon_v2_pokemontypes: { pokemon_v2_type: { name: { _eq: $type } } } }
+    ) {
+      ...PokemonInfo
+    }
+  }
+`
+
+
 type Variables = {
   offset: number
   name: string
+  type?: string,
   limit: number
   ids: number[]
 }
@@ -68,16 +83,36 @@ const listByNames = (variables: Variables) => {
   )
 }
 
+const listByTypes = (variables: Variables) => {
+  const { ids, ...queryVars} = variables
+
+  return request<Response, Omit<Variables, 'ids'>>(
+    endpoint, queryByType, queryVars
+  )
+}
+
 const defaultVariables: Variables = {
-  limit: 10, name: '', offset: 0, ids: []
+  limit: 300, name: '', offset: 0, ids: [], type: ''
 }
 
 export const list = async (variables: Partial<Variables> = {}): Promise<Pokemon[]> => {
-  const queryVars = { ...defaultVariables, ...variables }
+  let queryVars = { ...defaultVariables, ...variables }
 
-  const listRequest = queryVars.ids.length
-    ? listByIds
-    : listByNames
+  let listRequest;
+
+  if (queryVars.ids.length) {
+    listRequest = listByIds;
+    const { type, ...filteredVars } = queryVars;
+    queryVars = filteredVars;
+  } else if (queryVars.type) {
+    listRequest = listByTypes;
+    const { name, ids, ...filteredVars } = queryVars;
+    queryVars = filteredVars as Variables; 
+  } else {
+    listRequest = listByNames;
+    const { type, ...filteredVars } = queryVars;
+    queryVars = filteredVars as Variables;
+  }
 
   const { species } = await listRequest(queryVars)
 

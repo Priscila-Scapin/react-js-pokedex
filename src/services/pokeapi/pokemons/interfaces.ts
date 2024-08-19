@@ -6,8 +6,10 @@ export type Type = {
 }
 
 export type Pokemon = {
+	pokemon: any
   id: number
   name: string
   sprite: string
+  selected: string
   types: Type[]
 }
