@@ -28,25 +28,22 @@ interface AuthProviderProps {
 
   
 const AuthProvider = ({children}: AuthProviderProps) => {
-    const [user, setUser] = useState<User | undefined>(undefined);
-
-    useEffect(() => {
+    const [user, setUser] = useState<User | undefined>(() => {
         const token = localStorage?.getItem("user_token");
         const usersData = localStorage?.getItem('users_data');
-
-        if (!token || !usersData) {
-            return;
+      
+        if (token && usersData) {
+          const parsedToken = JSON?.parse(token);
+          const parsedUserLoginData = JSON?.parse(usersData);
+          const userExists = parsedUserLoginData.find((user: { email: string }) => user?.email === parsedToken?.email);
+      
+          if (userExists) {
+            return userExists;
+          }
         }
+        return undefined;
+      });
 
-        const parsedToken = JSON?.parse(token);
-        const parsedUserLoginData = JSON?.parse(usersData);
-
-        const userExists = parsedUserLoginData.find((user: { email: string }) => user?.email === parsedToken?.email);
-
-        if (userExists) {
-            setUser(userExists);
-        }
-    }, [])
 
     const signIn = (email: string, password: string): string | void => {
 
@@ -62,11 +59,11 @@ const AuthProvider = ({children}: AuthProviderProps) => {
             setUser(user); 
         return;
         } else {
-            return "Incorrect email or password.";
+            return "Wrong password or email";
         }
 
     } else {
-        return "User not found.";
+        return "Non existent account";
     }
     };
 
