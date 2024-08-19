@@ -1,21 +1,66 @@
-# Rain Instant Pay Frontend Test
+ReactJs Pokedex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the ReactJs Pokedex project! This application is designed to showcase information about Pokémon using a modern React.js setup.
+Project Overview
 
-Create a Pokédex that will allow the user to see a list of Pokémons and save its favorites on a separate list.
+This project was bootstrapped with Create React App. It provides a simple, yet powerful, interface to browse and search for your favorite Pokémon.
+Features
 
-The application must provide:
-- List of Pokémons on the main page
-    - Capable of filtering by name
-- List of favorite Pokémons
-    - The API can be mocked on the browser’s local storage
-- Code commits either by providing the .git folder or a public repo
-- Automated tests are a good addition but they are not mandatory
+    Responsive Design: The application is built to be fully responsive, ensuring a seamless experience on both desktop and mobile devices.
+    State Management: Utilizes Recoil for efficient and easy-to-use state management.
+    Material UI (MUI): MUI is used to create a polished and professional user interface.
 
-The API that should be used to get the data is https://pokeapi.co/. We provide the request functions at `src/services` but feel free to modify them as you need.
+Libraries Used
 
-Suggested designs (the design does not need to be perfect, it only illustrates the idea):
-- https://dribbble.com/shots/6545819-Pokedex-App?utm_source=pinterest&utm_campaign=pinterest_shot&utm_content=Pokedex%20App&utm_medium=Social_Share
-- https://dribbble.com/shots/6580701-HealthDex-A-Pok-mon-Pok-dex-web-application?utm_source=pinterest&utm_campaign=pinterest_shot&utm_content=HealthDex%20-%20A%20Pok%C3%A9mon%20Pok%C3%A9dex%20web%20application&utm_medium=Social_Share
-- https://dribbble.com/shots/14241781-Pok-dex
-- https://dribbble.com/shots/2960136-Poke-dex
+    Recoil: A state management library for React that makes managing complex state easy.
+    MUI (Material-UI): A popular React UI framework that helps in building consistent and professional interfaces.
+
+Getting Started
+
+To get a local copy of the project up and running, follow these steps:
+Prerequisites
+
+Ensure you have the following installed:
+
+    Node.js
+    npm or Yarn
+
+Installation
+
+    Clone the repository:
+
+    bash
+
+git clone https://github.com/Priscila-Scapin/react-js-pokedex.git
+cd react-js-pokedex
+
+Install the dependencies:
+
+bash
+
+    npm install
+    # or
+    yarn install
+
+Running the Project
+
+To start the development server, run:
+
+bash
+
+npm start
+# or
+yarn start
+
+This will run the app in the development mode. Open http://localhost:3000 to view it in the browser.
+Building the Project
+
+To create an optimized production build, run:
+
+bash
+
+npm run build
+# or
+yarn build
+
+The build is minified, and the filenames include the hashes. The build output is located in the build directory, ready to be deployed.
