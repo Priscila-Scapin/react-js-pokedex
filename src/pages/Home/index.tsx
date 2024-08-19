@@ -55,16 +55,17 @@ const Home = () => {
     }
   };
 
-	const getRandomLoaderGif = () => {
-		const randomIndex = Math.floor(Math.random() * gifsTitles.length);
-		return `/assets/${gifsTitles[randomIndex]}.gif`;
-	};
+	// Randon loader pokemon gif
+	// const getRandomLoaderGif = () => {
+	// 	const randomIndex = Math.floor(Math.random() * gifsTitles.length);
+	// 	return `/assets/${gifsTitles[randomIndex]}.gif`;
+	// };
 
 
-  useEffect(() => {
-    setLoaderGif(getRandomLoaderGif());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading]);
+  // useEffect(() => {
+  //   setLoaderGif(getRandomLoaderGif());
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [loading]);
 	
 
 	useEffect(() => {
@@ -238,7 +239,7 @@ console.log(filterQueryParam)
 						}}
 					>
 						<img
-							src={loaderGif}
+							src='/assets/pokeball-loader.gif'
 							alt="No Pokémon found"
 							style={{
 								width: '100%',

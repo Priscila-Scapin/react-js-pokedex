@@ -62,11 +62,11 @@ const AuthProvider = ({children}: AuthProviderProps) => {
             setUser(user); 
         return;
         } else {
-            return "E-mail ou senha incorretos";
+            return "Incorrect email or password.";
         }
 
     } else {
-        return "Usuário não cadastrado";
+        return "User not found.";
     }
     };
 
@@ -75,7 +75,7 @@ const AuthProvider = ({children}: AuthProviderProps) => {
         const hasUser = usersStorage?.filter((user: User) => user.email === email);
 
         if (hasUser?.length) {
-            return "Já existe uma conta cadastrada com esse email.";
+            return "Email already in use.";
         }
 
         let newUser;

@@ -111,11 +111,10 @@ const SignUp = () => {
 					endIcon={<LoginIcon />}
 					sx={{
 					backgroundColor: '#ff5722', 
-					color: '#ffffff',export default SignUp
-
+					color: '#ffffff',
 					'&:hover': {
 									backgroundColor: '#e64a19',
-					},
+								},
 					}}
 			>
 					SignUp
